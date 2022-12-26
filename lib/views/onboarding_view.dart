@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app_ui/constants.dart';
+import 'package:movie_app_ui/views/home_view.dart';
+import 'package:movie_app_ui/views/widgets/circle_dot.dart';
+import 'package:movie_app_ui/views/widgets/colored_wallpaper.dart';
 import 'package:movie_app_ui/views/widgets/custom_outline.dart';
-import 'package:movie_app_ui/views/widgets/shadow_color.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({Key? key}) : super(key: key);
@@ -16,24 +18,7 @@ class OnboardingView extends StatelessWidget {
         width: screenWidth,
         child: Stack(
           children: [
-            Positioned(
-              top: screenHeight * 0.1,
-              left: -60,
-              child: const ShadowColor(
-                height: 160,
-                width: 160,
-                color: Constants.kPinkColor,
-              ),
-            ),
-            Positioned(
-              top: screenHeight * 0.3,
-              right: -40,
-              child: const ShadowColor(
-                height: 170,
-                width: 170,
-                color: Constants.kGreenColor,
-              ),
-            ),
+            const ColoredWallpaper(),
             SafeArea(
               child: Center(
                 child: Column(
@@ -92,40 +77,45 @@ class OnboardingView extends StatelessWidget {
                     SizedBox(
                       height: screenHeight * 0.03,
                     ),
-                    CustomOutline(
-                      strokeWidth: 3,
-                      radius: 20,
-                      gradient: const LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Constants.kPinkColor,
-                          Constants.kGreenColor,
-                        ],
-                      ),
-                      width: 160,
-                      height: 38,
-                      padding: const EdgeInsets.all(3),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Constants.kPinkColor.withOpacity(0.5),
-                              Constants.kGreenColor.withOpacity(0.5),
-                            ],
-                          ),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeView()));
+                      },
+                      child: CustomOutline(
+                        strokeWidth: 3,
+                        radius: 20,
+                        gradient: const LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Constants.kPinkColor,
+                            Constants.kGreenColor,
+                          ],
                         ),
-                        child: Center(
-                          child: Text(
-                            'Sign Up',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: screenHeight <= 660 ? 11 : 15,
-                              fontWeight: FontWeight.w700,
-                              color: Constants.kWhiteColor,
+                        width: 160,
+                        height: 38,
+                        padding: const EdgeInsets.all(3),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Constants.kPinkColor.withOpacity(0.5),
+                                Constants.kGreenColor.withOpacity(0.5),
+                              ],
+                            ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Sign Up',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: screenHeight <= 660 ? 11 : 15,
+                                fontWeight: FontWeight.w700,
+                                color: Constants.kWhiteColor,
+                              ),
                             ),
                           ),
                         ),
@@ -152,25 +142,3 @@ class OnboardingView extends StatelessWidget {
   }
 }
 
-class CircleDot extends StatelessWidget {
-  const CircleDot({
-    Key? key, required this.index,
-  }) : super(key: key);
-  final int index;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 7,
-      width: 7,
-      margin: const EdgeInsets.symmetric(
-        horizontal: 4,
-      ),
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: index == 0
-              ? Constants.kGreenColor
-              : Constants.kWhiteColor.withOpacity(0.2),
-      ),
-    );
-  }
-}
