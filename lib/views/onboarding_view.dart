@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app_ui/constants.dart';
 import 'package:movie_app_ui/views/home_view.dart';
 import 'package:movie_app_ui/views/widgets/circle_dot.dart';
-import 'package:movie_app_ui/views/widgets/colored_wallpaper.dart';
+import 'package:movie_app_ui/views/widgets/onboarding_view_wallpaper.dart';
 import 'package:movie_app_ui/views/widgets/custom_outline.dart';
 
 class OnboardingView extends StatelessWidget {
@@ -18,7 +18,7 @@ class OnboardingView extends StatelessWidget {
         width: screenWidth,
         child: Stack(
           children: [
-            const ColoredWallpaper(),
+            const OnboardingViewWallpaper(),
             SafeArea(
               child: Center(
                 child: Column(

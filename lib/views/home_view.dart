@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app_ui/constants.dart';
-import 'package:movie_app_ui/views/widgets/colored_wallpaper.dart';
+import 'package:movie_app_ui/views/widgets/home_view_wallpaper.dart';
 
 
 class HomeView extends StatelessWidget {
@@ -16,8 +16,8 @@ class HomeView extends StatelessWidget {
         height: screenHeight,
         width: screenWidth,
         child: Stack(
-          children: [
-            const ColoredWallpaper(),
+          children: const[
+            HomeViewWallpaper(),
           ],
         ),
       ),

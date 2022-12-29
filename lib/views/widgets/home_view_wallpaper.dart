@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movie_app_ui/constants.dart';
 import 'package:movie_app_ui/views/widgets/shadow_color.dart';
 
-class ColoredWallpaper extends StatelessWidget {
-  const ColoredWallpaper({Key? key}) : super(key: key);
+class HomeViewWallpaper extends StatelessWidget {
+  const HomeViewWallpaper({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ColoredWallpaper extends StatelessWidget {
           child: const ShadowColor(
             height: 160,
             width: 160,
-            color: Constants.kPinkColor,
+            color: Constants.kGreenColor,
           ),
         ),
         Positioned(
@@ -25,6 +25,15 @@ class ColoredWallpaper extends StatelessWidget {
           child: const ShadowColor(
             height: 170,
             width: 170,
+            color: Constants.kPinkColor,
+          ),
+        ),
+        Positioned(
+          top: screenHeight * 0.7,
+          left: -60,
+          child: const ShadowColor(
+            height: 160,
+            width: 160,
             color: Constants.kGreenColor,
           ),
         ),
